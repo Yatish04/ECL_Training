@@ -1,0 +1,4 @@
+﻿IMPORT $;
+
+SIZEOF($.STD_PERSONS.File);
+$.STD_PERSONS.File;
