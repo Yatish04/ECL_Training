@@ -1,5 +1,2 @@
-﻿// EXPORT SetBureauCodes := 'todo';
-
-IMPORT $;
-
-EXPORT SetBureauCodes := SET($.persons, BureauCode);
+﻿IMPORT $;
+EXPORT SetBureauCodes := SET($.Persons,BureauCode);

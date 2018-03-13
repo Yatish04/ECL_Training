@@ -15,7 +15,7 @@
 	STRING2 State;
 	STRING5 ZipCode;
 END;
-// EXPORT 
+EXPORT 
 Persons := DATASET('~ONLINE::FGB::Intro::Persons', Layout_Persons, THOR);
 
-Persons;
+// Persons;
