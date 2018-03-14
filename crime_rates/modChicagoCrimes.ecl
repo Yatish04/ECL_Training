@@ -25,10 +25,10 @@
   END;
 
   // // BIG DATA SET
-  // EXPORT dChicagoCrimes := DATASET('~online::dsr::crimes_2001_201803', lChicagoCrimes, CSV(HEADING(1)));
+  EXPORT dChicagoCrimes := DATASET('~online::dsr::crimes_2001_201803', lChicagoCrimes, CSV(HEADING(1)));
 
   // SMALLER DATA SET, for TESTS
-  EXPORT dChicagoCrimes := DATASET('~reduced::test::crimes', lChicagoCrimes, CSV(HEADING(1)));
+  // EXPORT dChicagoCrimes := DATASET('~reduced::test::crimes', lChicagoCrimes, CSV(HEADING(1)));
 
 END;
 

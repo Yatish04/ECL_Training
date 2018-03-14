@@ -14,11 +14,11 @@ lCrime := RECORD
   UNSIGNED IUCR;
   UNSIGNED FBI_code;
   UNSIGNED4 date_updated;
-  UNSIGNED4 date_processed; 
+  UNSIGNED4 date_processed;
 END;
 
-lCrime process_fields( $.modChicagoCrimesProcessed L, INTEGER row_id) := TRANSFORM
-	  SELF.row_id := row_id;
+lCrime process_fields( $.dChicagoCrimesProcessed L, INTEGER processed_fields_counter) := TRANSFORM
+	  SELF.row_id := L.row_id;
 	  SELF.crime_id := HASH64(L.crime_id);
     SELF.case_number := L.casenumber;
     SELF.date_crime := L.date_crime;
@@ -34,12 +34,8 @@ lCrime process_fields( $.modChicagoCrimesProcessed L, INTEGER row_id) := TRANSFO
 END;
 
 
-// EXPORT 
-	dCrime := PROJECT($.modChicagoCrimesProcessed.dChicagoCrimesProcessed, process_fields(LEFT,COUNTER));
+EXPORT 
+	dCrime := PROJECT($.dChicagoCrimesProcessed, process_fields(LEFT,COUNTER))
+    :PERSIST('~TEMP::dCrime');
 
-dCrime;
-// // EXPORT 
-// 	XTAB_Crime := TABLE($.modChicagoCrimesProcessed, lCrime, Crime);
-	
-// XTAB_Crime;
-// // $.modChicagoCrimesProcessed;
+// dCrime;

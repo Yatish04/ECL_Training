@@ -99,7 +99,7 @@ lChicagoCrimesAfterProcessing process_fields( $.modChicagoCrimes.lChicagoCrimes 
 END;
 
 EXPORT 
-	modChicagoCrimesProcessed := PROJECT($.modChicagoCrimes.dChicagoCrimes, process_fields(LEFT,COUNTER))
+	dChicagoCrimesProcessed := PROJECT($.modChicagoCrimes.dChicagoCrimes, process_fields(LEFT,COUNTER))
   :PERSIST('~TEMP::ChicagoCrimesProcessed');
 
 // modChicagoCrimesProcessed;
